@@ -2,6 +2,26 @@ import React from "react";
 import { AiFillHeart } from 'react-icons/ai';
 import { BiChevronRight } from 'react-icons/bi';
 import { BsDot } from 'react-icons/bs';
+
+
+const lunchRazorPay = () => {
+    const options = {
+        key:"rzp_test_o2OD4pEie5fWaK",
+        amount:500*100,             //default in paisa
+        currency: "INR",
+        name:"Book My Show Clone",
+        description:"Movie Purchase On Rental",
+        image:"https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png",
+        handler:()=>{
+            alert("payment Done");
+        },
+        theme:{color:"#c4242d"}
+    };
+    const  rzp = new window.Razorpay(options);
+    rzp.open();
+};
+ 
+
 const MovieHero =()=>{
     return (
         <>
@@ -44,13 +64,16 @@ const MovieHero =()=>{
                     <p className="flex"><span className="text-2xl"><BsDot/></span>17 Sep,2021</p>
                 </div>
                 <div>
-                    <button className="bg-red-500 text-white font-semibold px-12 py-3 my-5 rounded-md">Book tickets</button>
+                    <button className="bg-red-500 text-white font-semibold px-12 py-3 my-5 rounded-md" onClick={lunchRazorPay}>Book tickets</button>
                 </div>
                 </div>
             </div>
             </div>
         <img src="https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/dhuandhaar-et00314682-08-09-2021-06-27-28.jpg" alt="Poster" className="w-full h-full"/>
         </div>
+
+        
+
         </>
     )
 }
